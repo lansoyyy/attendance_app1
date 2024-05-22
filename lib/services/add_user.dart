@@ -12,7 +12,9 @@ Future addUser(name, email, password, userType) async {
     'password': password,
     'dateTime': DateTime.now(),
     'userType': userType,
-    'uid': FirebaseAuth.instance.currentUser!.uid
+    'uid': FirebaseAuth.instance.currentUser!.uid,
+    'lat': 0,
+    'lng': 0,
   };
 
   await docUser.set(json);
