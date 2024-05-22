@@ -249,13 +249,9 @@ class _LoginScreenState extends State<LoginScreen> {
       final user = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: id.text, password: password.text);
 
-      if (user.user!.emailVerified) {
-        showToast('Logged in succesfully!');
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const HomeScreen()));
-      } else {
-        showToast('Please verify your email!');
-      }
+      showToast('Logged in succesfully!');
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const HomeScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showToast("No user found with that email.");

@@ -112,12 +112,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
       addUser(name.text, id.text, password.text, 'Student');
 
-      showToast(
-          'Account created succesfully! Verification was sent to your email');
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: id.text, password: password.text);
-
-      await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+      showToast('Account created succesfully!');
 
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const LoginScreen()));
