@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app1/services/add_report.dart';
 import 'package:app1/utlis/colors.dart';
 import 'package:app1/widgets/text_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -51,6 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
       await TorchLight.enableTorch();
       // Do stuff on phone shake
     });
+
+    addReport();
   }
 
   @override
