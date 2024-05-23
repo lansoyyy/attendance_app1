@@ -12,7 +12,9 @@ import 'package:shake/shake.dart';
 import 'package:torch_light/torch_light.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  String name;
+
+  HomeScreen({super.key, required this.name});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -53,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // Do stuff on phone shake
     });
 
-    addReport();
+    addReport(widget.name);
   }
 
   @override
