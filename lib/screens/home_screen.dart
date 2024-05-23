@@ -5,7 +5,10 @@ import 'package:app1/widgets/text_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_vibrate/flutter_vibrate.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:shake/shake.dart';
+import 'package:torch_light/torch_light.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,6 +37,19 @@ class _HomeScreenState extends State<HomeScreen> {
       }).catchError((error) {
         print('Error getting location: $error');
       });
+    });
+
+    ShakeDetector.autoStart(onPhoneShake: () async {
+      final Iterable<Duration> pauses = [
+        for (int i = 0; i < 50; i++) const Duration(milliseconds: 500),
+        const Duration(milliseconds: 1000),
+        const Duration(milliseconds: 500),
+      ];
+// vibrate - sleep 0.5s - vibrate - sleep 1s - vibrate - sleep 0.5s - vibrate
+      Vibrate.vibrateWithPauses(pauses);
+
+      await TorchLight.enableTorch();
+      // Do stuff on phone shake
     });
   }
 

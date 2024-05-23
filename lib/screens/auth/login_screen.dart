@@ -8,6 +8,8 @@ import 'package:app1/widgets/button_widget.dart';
 import 'package:app1/widgets/text_widget.dart';
 import 'package:app1/widgets/textfield_widget.dart';
 import 'package:app1/widgets/toast_widget.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_vibrate/flutter_vibrate.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isstudent = true;
   bool isteacher = false;
   bool remembered = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -208,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ButtonWidget(
                 width: 275,
                 label: 'Login',
-                onPressed: () {
+                onPressed: () async {
                   login(context);
                 },
               ),

@@ -43,6 +43,9 @@ dependencies:
   firebase_auth:
   geocoding: ^2.1.0
   geolocator: ^11.0.0
+  flutter_vibrate:
+  torch_light:
+  shake:
 
 dev_dependencies:
   flutter_test:
